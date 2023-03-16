@@ -39,12 +39,12 @@ public class RedisConfig {
       config.setPassword(redisPassword);
     }
     config.setDatabase(0);
-    final JedisClientConfiguration jedisClient = JedisClientConfiguration
+    final JedisClientConfiguration jedisClientConfig = JedisClientConfiguration
         .builder()
         .build();
 
     final JedisConnectionFactory jedisFac = new JedisConnectionFactory(config,
-        jedisClient);
+        jedisClientConfig);
     jedisFac.afterPropertiesSet();
 
     RedisTemplate<String, Object> r = new RedisTemplate<String, Object>();
@@ -52,7 +52,6 @@ public class RedisConfig {
     r.setKeySerializer(new StringRedisSerializer());
     r.setValueSerializer(r.getKeySerializer());
 
-    System.out.println("redisHost > " + redisHost);
     return r;
   }
 }

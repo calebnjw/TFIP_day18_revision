@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body data-th-object="order">
+    <h1>Your Order Details:</h1>
+    <table>
+      <tr>
+        <td>Order ID:</td>
+        <td><a data-th-href="@{/order/{orderId}(orderId=*{orderId})}"></a></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><span data-th-text="*{address}"></span></td>
+      </tr>
+      <tr>
+        <td>Pizza Cost:</td>
+        <td><span data-th-text="*{totalCost}"></span></td>
+      </tr>
+    </table>
+  </body>
+</html>

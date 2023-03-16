@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Delivery Details</h1>
+    <form action="POST" data-th-action="@{/pizza/order}" data-th-object="${delivery}">
+      <table>
+        <tr>
+          <div data-th-if="${#fields.hasErrors('name')}">
+            <td><span data-th-errors="*{name}" data-th-errorclass="error"></span></td>
+          </div>
+          <td>Name:</td>
+          <td><input type="text" placeholder="name" data-th-field="*{name}" /></td>
+        </tr>
+        <tr>
+          <div data-th-if="${#fields.hasErrors('address')}">
+            <td><span data-th-errors="*{address}" data-th-errorclass="error"></span></td>
+          </div>
+          <td>Address:</td>
+          <td><input type="text" placeholder="address" data-th-field="*{address}" /></td>
+        </tr>
+        <tr>
+          <div data-th-if="${#fields.hasErrors('phone')}">
+            <td><span data-th-errors="*{phone}" data-th-errorclass="error"></span></td>
+          </div>
+          <td>Phone Number:</td>
+          <td><input type="tel" placeholder="phone number" data-th-field="*{phone}" /></td>
+        </tr>
+        <tr>
+          <td>Rush:</td>
+          <td><input type="checkbox" data-th-field="*{rush}" /></td>
+        </tr>
+        <tr>
+          <td>Comments:</td>
+          <td>
+            <textarea
+              name=""
+              id=""
+              rows="5"
+              placeholder="comments"
+              data-th-field="*{comments}"
+            ></textarea
+            >"
+          </td>
+        </tr>
+        <tr>
+          <input type="button" formmethod="GET" formaction="/" value="Cancel Order" />
+          <input type="submit" value="Submit Order" />
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
